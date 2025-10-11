@@ -1,0 +1,42 @@
+import React, { useState } from "react";
+import './App.css'
+
+
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openNav = () => {
+    setIsOpen(true);
+  };
+
+  const closeNav = () => {
+    setIsOpen(false);
+  };
+
+  return (
+    <>
+      <span className="openbtn" onClick={openNav}>☰ Abrir</span>
+      <div className={`sidenav ${isOpen ? "open" : ""}`} id="mySidenav">
+
+        <p className="closebtn" onClick={closeNav}>&times;Cerrar</p>
+        <span className="sidenavbar" id="myNavbar">Navbar</span>
+        <div id="mySidenav" className={`sidenav ${isOpen ? "open" : ""}`}>
+          <a hred="#" className="Search">Buscar</a>
+          <a href="#">Inicio</a>
+          <a href="#">Información</a>
+          <a href="#">Pokedex</a>
+          <a href="#">Favoritos</a>
+        </div>
+      </div>
+    </>
+  );
+}
+ 
+
+/*function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}*/
