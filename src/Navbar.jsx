@@ -21,11 +21,10 @@ export default function Navbar() {
         <p className="closebtn" onClick={closeNav}>&times;Cerrar</p>
         <span className="sidenavbar" id="myNavbar">Navbar</span>
         <div id="mySidenav" className={`sidenav ${isOpen ? "open" : ""}`}>
-          <a hred="#" className="Search">Buscar</a>
-          <a href="#">Inicio</a>
-          <a href="#">Información</a>
-          <a href="#">Pokedex</a>
-          <a href="#">Favoritos</a>
+          <a href="./Inicio">Inicio</a>
+          <a href="./Informacion">Información</a>
+          <a href="./Pokedex">Pokedex</a>
+          <a href="./Favoritos">Favoritos</a>
         </div>
       </div>
     </>
