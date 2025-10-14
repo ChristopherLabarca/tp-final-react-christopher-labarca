@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import pokeLogo from "./assets/International_Pokémon_logo.svg.png";
 import "./App.css";
 import Navbar from "./Navbar.jsx";
@@ -19,7 +18,6 @@ function App() {
           <img src={pokeLogo} className="logo" alt="Poke logo" width={300} />
         </a>
       </div>
-      <h1>¡Bienvenidos!</h1>
 
       <Navbar />
       <div className="main">
@@ -27,9 +25,8 @@ function App() {
 
       <div>
         <Routes>
-          <Route path='/' element={<Inicio />} />
           <Route path='/Inicio' element={<Inicio />} />
-          <Route path='/informacion' element={<Informacion />} />
+          <Route path='/informacion/:id' element={<Informacion />} />
           <Route path='/pokedex' element={<Pokedex />} />
           <Route path='/favoritos' element={<Favoritos />} />
           <Route path='*' element={<h2>404 Not Found</h2>} />
@@ -41,5 +38,16 @@ function App() {
   );
   
 }
+
+/*en pokedex es el listado de pokemones
+en informacion es la informacion de los pokemones
+en favoritos es el listado de pokemones favoritos
+en inicio es la pagina de inicio
+*/
+
+
+
+
+
 
 export default App;

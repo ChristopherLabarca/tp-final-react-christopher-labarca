@@ -21,10 +21,10 @@ export default function Navbar() {
         <p className="closebtn" onClick={closeNav}>&times;Cerrar</p>
         <span className="sidenavbar" id="myNavbar">Navbar</span>
         <div id="mySidenav" className={`sidenav ${isOpen ? "open" : ""}`}>
-          <a href="./Inicio">Inicio</a>
-          <a href="./Informacion">Información</a>
-          <a href="./Pokedex">Pokedex</a>
-          <a href="./Favoritos">Favoritos</a>
+          <a href="/Inicio">Inicio</a>
+          <a href="/Informacion">Información</a>
+          <a href="/Pokedex">Pokedex</a>
+          <a href="/Favoritos">Favoritos</a>
         </div>
       </div>
     </>
@@ -32,10 +32,3 @@ export default function Navbar() {
 }
  
 
-/*function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-}
-
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-}*/

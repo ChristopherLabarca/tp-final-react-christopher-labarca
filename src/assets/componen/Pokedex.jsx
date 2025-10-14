@@ -1,46 +1,46 @@
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 export default function Pokedex() {
+  const [pokemones, setPokemones] = useState([]);
+
+  useEffect(() => {
+    getPokemons();
+  }, []);
+
+  const getPokemons = async () => {
+    fetch(`https://pokeapi.co/api/v2/pokemon?limit=30`)
+      .then((res) => res.json())
+      .then((data) => setPokemones(data.results))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <>
       <h1>Pokedex</h1>
-              <h2>Bienvenido a la Pokedex</h2>
+      <h2>Bienvenido a la Pokedex</h2>
 
-                <p>Aquí puedes encontrar información sobre todos los Pokémon.</p>
+      <p>Aquí puedes encontrar información sobre todos los Pokémon.</p>
 
-
-
-                
-            <div className="pokemon-card-box">
-        <div className="contenedor">
-          <div className="card card-hover text-center">
-            <img className="card-img-top" alt="Pokemon 151" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png"></img>
+      <div className="pokemon-card-box">
+        {pokemones.map((pokemon) => (
+          <div className="card card-hover text-center" key={pokemon.name}>
+            <h5 className="card-title">{pokemon.name}</h5>
+            <img
+              className="card-img-top"
+              alt={`Pokemon ${pokemon.name}`}
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.url.match(/\/(\d+)\/?$/)?.[1]}.png`}
+            ></img>
             <div className="card-body"></div>
-              <h5 className="card-title">Mew</h5>
-              <p className="card-text">Tipo: Psíquico</p>
-              <a href="https://pokeapi.co/api/v2/pokemon/151/" target="_blank" className="btn btn-primary">Ver más</a>
-              <button className="boton-favo" title="Agregar a favoritos" type="button"><span className="corazon-vacio">🤍</span></button>
+            <h5 className="card-title">{pokemon.name}</h5>
+            <p className="card-text">Tipo: {pokemon.type}</p>
+            <Link to={`/informacion/${pokemon.url.match(/\/(\d+)\/?$/)?.[1]}`}>Ver más</Link>
 
-            </div>
+            <button className="boton-favo" title="Agregar a favoritos" type="button">
+              <span className="corazon-vacio">🤍</span>
+            </button>
           </div>
-          <div className="card card-hover text-center">
-            <img className="card-img-top" alt="Pokemon 150" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/150.png"></img>
-            <div className="card-body"></div>
-              <h5 className="card-title">Mewtwo</h5>
-              <p className="card-text">Tipo: Psíquico</p>
-              <a href="https://pokeapi.co/api/v2/pokemon/150/" target="_blank" className="btn btn-primary">Ver más</a>
-              <button className="boton-favo" title="Agregar a favoritos" type="button"><span className="corazon-vacio">🤍</span></button>
-            </div>
-
-                      <div className="card card-hover text-center">
-            <img className="card-img-top" alt="Pokemon 149" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png"></img>
-            <div className="card-body"></div>
-              <h5 className="card-title">dragonite</h5>
-              <p className="card-text">Tipo: Dragón</p>
-              <a href="https://pokeapi.co/api/v2/pokemon/149/" target="_blank" className="btn btn-primary">Ver más</a>
-              <button className="boton-favo" title="Agregar a favoritos" type="button"><span className="corazon-vacio">🤍</span></button>
-            </div>
-          </div>
-
+        ))}
+      </div>
     </>
   );
 }
-

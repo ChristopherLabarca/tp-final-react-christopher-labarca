@@ -1,24 +1,24 @@
-import { Link } from 'react-router-dom';
+/*import { Link } from 'react-router-dom';
 
 function Navegacion() {
   return (
     <nav>
       <ul>
         <li>
-          <Link to='./Inicio'>Inicio</Link>
+          <Link to='./...'>Inicio</Link>
         </li>
         <li>
-          <Link to='./pokedex'>Pokedex</Link>
+          <Link to='./...'>Pokedex</Link>
         </li>
         <li>
-          <Link to='./Informacion'>Información</Link>
+          <Link to='./...'>Información</Link>
         </li>
         <li>
-          <Link to='./Favoritos'>Favoritos</Link>
+          <Link to='./...'>Favoritos</Link>
         </li>
       </ul>
     </nav>
   );
 }
 
-export default Navegacion;
+export default Navegacion;*/
