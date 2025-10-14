@@ -9,9 +9,6 @@
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
 }
 
 a {
@@ -94,15 +91,10 @@ button:focus-visible {
   text-align: center;
   background-color: #1a1a1a;
   color: rgb(255, 255, 255);
-  position: fixed;
   bottom: 0;
   width: 100%;
   font-size: 10px;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  padding-inline-end: auto;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  align-content: center;
+  margin: 0 auto;
 }
