@@ -6,7 +6,6 @@
 }
 
 * {
-  
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -20,7 +19,6 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
-  
 
   @media screen and (min-width: 768px) {
   }
@@ -45,8 +43,7 @@
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-    border-radius: 15px;
-
+  border-radius: 15px;
 }
 
 /* The navigation menu links */
@@ -57,12 +54,10 @@
   color: #818181;
   display: block;
   transition: 0.3s;
-  font-size:30px;
-  cursor:pointer;
-    border-radius: 15px;
-
+  font-size: 30px;
+  cursor: pointer;
+  border-radius: 15px;
 }
-
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
@@ -73,9 +68,8 @@
   width: 230px; /* Set the width of the side navigation to 230px */
   backdrop-filter: blur(30px);
   border: 2px solid black;
-  box-shadow: 10px 10px 30px rgba(0,0,0,0.3);
-    border-radius: 15px;
-
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
 }
 
 .openbtn {
@@ -87,8 +81,6 @@
   padding: 8px 0px;
   &:hover {
     background-color: #a06b6b;
-      
-
   }
 }
 /* Position and style the close button (top right corner) */
@@ -101,26 +93,27 @@
   z-index: 99;
   &:hover {
     color: #da4242;
-      border-radius: 15px;
-
+    border-radius: 15px;
   }
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
-  transition: margin-left .5s;
+  transition: margin-left 0.5s;
   padding: 20px;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
 }
 
 .row-margin {
-
   max-width: 99%;
 }
 
@@ -135,20 +128,18 @@
   &:hover {
     transform: scale(1.05);
     transition: transform 0.3s ease-in-out;
-
   }
 }
 
 .pokemon-card-box {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 1rem;
   padding: 1rem;
   margin: 0 30px;
 }
 
 .card-img-top {
-  
   width: 100%;
   border-top-left-radius: calc(0.25rem - 2px);
   border-top-right-radius: calc(0.25rem - 2px);
@@ -163,50 +154,64 @@
   background-color: white !important;
 }
 
-.boton-favo , .heart-empty, .heart-full {
-  background-color: #ffffff;
-  color: rgba(243, 7, 7, 0.863);
-  border: none;
-  padding: 10px 20px;
+
+
+
+
+.pokemon-info {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgba(15, 14, 14, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  text-decoration: none;
+  font-family: Arial, sans-serif;
+ 
+}
+
+.flip-card {
+  background-color: transparent;
   display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 12px;
-  &:hover {
-    transform: scale(1.1);
-  }
+  width: 300px;
+  height: 300px;
+  border: 1px solid #f87d09;
+  perspective: 400px; /* Remove this if you don't want the 3D effect */
 }
 
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
 
-.boton-favo:hover {
-  background-color: #cc0000;
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
 }
-.boton-favo:focus {
-  outline: none;
-  box-shadow: 0 0 5px #ff0000;
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
 }
-.boton-favo:active {
-  background-color: #990000;
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
 }
-.boton-favo:disabled {
-  background-color: #e6e6e6;
-  color: #a6a6a6;
-  cursor: not-allowed;
-}
-.boton-favo:disabled:hover {
-  background-color: #e6e6e6;
-  color: #a6a6a6;
-  cursor: not-allowed;
-}
-.boton-favo:disabled:focus {
-  outline: none;
-  box-shadow: none;
-}
-.boton-favo:disabled:active {
-  background-color: #e6e6e6;
-  color: #a6a6a6;
-  cursor: not-allowed;
+
+/* Style the back side */
+.flip-card-back {
+  background-color: rgb(36, 73, 110);
+  color: white;
+  transform: rotateY(180deg);
 }

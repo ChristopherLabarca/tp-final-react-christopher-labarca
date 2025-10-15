@@ -42,7 +42,10 @@ h1 {
 
 h2,
 h3,
+h4,
+h5,
 p {
+  color: #ffffff;
   line-height: 1.1;
   text-shadow: #000000 2px 2px 4px;
 }
