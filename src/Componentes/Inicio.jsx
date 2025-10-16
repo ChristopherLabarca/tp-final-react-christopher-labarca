@@ -29,7 +29,10 @@ export default function Inicio() {
         </div>
       </div>
       <p>¡Diviértete explorando!</p>
-      <p>Recuerda que puedes buscar cualquier Pokémon en la pokedex en la barra de búsqueda.</p>
+      <p>
+        Recuerda que puedes buscar cualquier Pokémon en la pokedex en la barra
+        de búsqueda.
+      </p>
     </div>
   );
 }

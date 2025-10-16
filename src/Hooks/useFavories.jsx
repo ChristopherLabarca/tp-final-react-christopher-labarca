@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-const LOCAL_STORAGE_KEY = 'myReactFavorites';
+const LOCAL_STORAGE_KEY = "myReactFavorites";
 
 // Hook personalizado (Arrow Function)
 export const useFavorites = () => {
@@ -25,10 +25,11 @@ export const useFavorites = () => {
 
   // 4. Función para alternar el estado (Arrow Function)
   const toggleFavorite = (pokemonId) => {
-    setFavoriteIds(prevIds => 
-      prevIds.includes(pokemonId)
-        ? prevIds.filter(id => id !== pokemonId) // Eliminar
-        : [...prevIds, pokemonId]                 // Añadir
+    setFavoriteIds(
+      (prevIds) =>
+        prevIds.includes(pokemonId)
+          ? prevIds.filter((id) => id !== pokemonId) // Eliminar
+          : [...prevIds, pokemonId] // Añadir
     );
   };
 

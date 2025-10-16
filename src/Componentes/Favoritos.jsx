@@ -17,11 +17,9 @@ export default function Favoritos() {
               isFavorite={true}
               onToggle={() => {}}
             />
-            
           </div>
         ))}
       </div>
     </>
   );
 }
-

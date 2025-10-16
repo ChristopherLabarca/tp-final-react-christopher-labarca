@@ -59,7 +59,9 @@ export default function Pokedex() {
         })}
       </div>
 
-      <p>Total de Favoritos: {Array.isArray(favorites) ? favorites.length : 0}</p>
+      <p>
+        Total de Favoritos: {Array.isArray(favorites) ? favorites.length : 0}
+      </p>
       <div className="favorites-list">
         {(Array.isArray(favorites) ? favorites : []).map((pokemon) => (
           <div key={pokemon.id} className="favorite-pokemon">

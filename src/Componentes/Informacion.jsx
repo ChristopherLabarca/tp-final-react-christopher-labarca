@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-
-
-
 export default function Informacion() {
   const { id } = useParams();
   const [pokemon, setPokemon] = useState(null);
@@ -23,8 +20,15 @@ export default function Informacion() {
       <img src={pokemon.sprites.front_default} alt={pokemon.name} />
       <p>Altura: {pokemon.height}</p>
       <p>Peso: {pokemon.weight}</p>
-      <p>Tipo: {pokemon.types.map((typeInfo) => typeInfo.type.name).join(", ")}</p>
-      <p>Habilidades: {pokemon.abilities.map((abilityInfo) => abilityInfo.ability.name).join(", ")}</p>
+      <p>
+        Tipo: {pokemon.types.map((typeInfo) => typeInfo.type.name).join(", ")}
+      </p>
+      <p>
+        Habilidades:{" "}
+        {pokemon.abilities
+          .map((abilityInfo) => abilityInfo.ability.name)
+          .join(", ")}
+      </p>
       <p>Estadísticas:</p>
       <ul>
         {pokemon.stats.map((statInfo) => (
