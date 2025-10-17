@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import FavoriteButton from "../Componentes/FavoriteButton.jsx"; // ← Ruta corregida
-import useFavorites from "../Hooks/useFavorites.jsx"; // ← Ruta corregida
+import useFavorites from "../Hooks/useFavories.jsx"; // ← Ruta corregida
 
 export default function Pokedex() {
   const [pokemones, setPokemones] = useState([]);

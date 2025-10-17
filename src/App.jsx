@@ -28,7 +28,8 @@ function App() {
           <Route path="/informacion/:id" element={<Informacion />} />
           <Route path="/pokedex" element={<Pokedex />} />
           <Route path="/favoritos" element={<Favoritos />} />
-          <Route path="*" element={<Error />} />
+          <Route path="/*" element={<Error />} />
+          <Route path="/" element={<Inicio />} />
         </Routes>
       </div>
     </>
