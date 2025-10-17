@@ -207,10 +207,20 @@
   align-items: center;
   border: 1px solid #0c0909;
   border-radius: 8px;
-  padding: 25px;
-  margin-bottom: 40px;
+  padding: 10px;
+  margin-bottom: 20px;
   background-color: #f9f9f9a9;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   transition: transform 0.3s ease;
+  width: 180px;
+}
+
+.favorites-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
+  align-items: center;
 }
