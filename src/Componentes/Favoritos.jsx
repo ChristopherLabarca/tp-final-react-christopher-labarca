@@ -12,6 +12,11 @@ export default function Favoritos() {
         {favorites.map((pokemon) => (
           <div key={pokemon.id} className="favorite-pokemon">
             <h4>{pokemon.name}</h4>
+            <img
+              alt={`Pokemon ${pokemon.name}`}
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
+              style={{ width: "100px", height: "100px" }}
+            />
             <FavoriteButton
               pokemonId={pokemon.url.match(/\/(\d+)\/?$/)?.[1]}
               isFavorite={true}

@@ -1,33 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import FavoriteButton from "./Button.jsx";
-import "../Hooks/UseFavories.jsx";
-import useFavorites from "../Hooks/UseFavories.jsx";
+import FavoriteButton from "../Componentes/FavoriteButton.jsx"; // ← Ruta corregida
+import useFavorites from "../Hooks/useFavories.jsx"; // ← Ruta corregida
 
 export default function Pokedex() {
   const [pokemones, setPokemones] = useState([]);
-  const { favorites } = useFavorites();
+  const { favorites, isFavorite, toggleFavorite } = useFavorites(); // ← SOLO UNA VEZ
 
   useEffect(() => {
-    getPokemons();
-  }, []);
-
-  const getPokemons = async () => {
-    fetch(`https://pokeapi.co/api/v2/pokemon?limit=30`)
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=30")
       .then((res) => res.json())
       .then((data) => setPokemones(data.results))
       .catch((err) => console.log(err));
-  };
-
-  const { addFavorite, removeFavorite, isFavorite } = useFavorites();
+  }, []);
 
   const handleToggleFavorite = (pokemon) => {
     const id = pokemon.url.match(/\/(\d+)\/?$/)?.[1];
-    if (isFavorite(id)) {
-      removeFavorite(id);
-    } else {
-      addFavorite({ id, name: pokemon.name, url: pokemon.url });
-    }
+    toggleFavorite({ id, name: pokemon.name, url: pokemon.url });
   };
 
   return (
@@ -46,34 +35,55 @@ export default function Pokedex() {
                 alt={`Pokemon ${pokemon.name}`}
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}
               />
-              <div className="card-body"></div>
-              <h5 className="card-title">{pokemon.name}</h5>
-              <Link to={`/informacion/${id}`}>Ver más</Link>
-              <FavoriteButton
-                itemId={id}
-                isFavorite={isFavorite(id)}
-                onToggle={() => handleToggleFavorite(pokemon)}
-              />
+              <div className="card-body">
+                <h5 className="card-title">{pokemon.name}</h5>
+                <Link to={`/informacion/${id}`}>Ver más</Link>
+                <FavoriteButton
+                  pokemonId={id} // ← Usá pokemonId, NO itemId
+                  isFavorite={isFavorite(id)}
+                  onToggle={() => handleToggleFavorite(pokemon)}
+                />
+              </div>
             </div>
           );
         })}
       </div>
 
-      <p>
-        Total de Favoritos: {Array.isArray(favorites) ? favorites.length : 0}
-      </p>
+
+<h2>Cargar más Pokémon</h2>
+
+
+      <button style={{ backgroundColor: "lightblue", padding: "10px", border: "none", borderRadius: "5px", cursor: "pointer", marginTop: "20px" }}
+        onClick={() => {
+          fetch(`https://pokeapi.co/api/v2/pokemon?offset=${pokemones.length}&limit=30`)
+            .then((res) => res.json())
+            .then((data) => setPokemones((prev) => [...prev, ...data.results]))
+            .catch((err) => console.log(err));
+        }}
+      >
+        Cargar más Pokémon
+      </button>
+
+<h3>Pokemones Favoritos</h3>
+
+      <p>Total de Favoritos: {favorites.length}</p>
       <div className="favorites-list">
-        {(Array.isArray(favorites) ? favorites : []).map((pokemon) => (
-          <div key={pokemon.id} className="favorite-pokemon">
+        {favorites.map((pokemon) => (
+          <div key={pokemon.id} className="favorite-pokemon" >
             <h4>{pokemon.name}</h4>
+            <img
+              alt={`Pokemon ${pokemon.name}`}
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
+              style={{ width: "100px", height: "100px" }}
+            />
             <FavoriteButton
-              itemId={pokemon.id}
+              pokemonId={pokemon.id}
               isFavorite={true}
-              onToggle={() => removeFavorite(pokemon.id)}
+              onToggle={() => toggleFavorite(pokemon)}
             />
           </div>
         ))}
       </div>
-    </>
-  );
+</>
+);
 }

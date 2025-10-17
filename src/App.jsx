@@ -23,7 +23,7 @@ function App() {
 
       <div>
         <Routes>
-          <Route path="/Inicio" element={<Inicio />} />
+          <Route path="inicio" element={<Inicio />} />
           <Route path="/informacion/:id" element={<Informacion />} />
           <Route path="/pokedex" element={<Pokedex />} />
           <Route path="/favoritos" element={<Favoritos />} />

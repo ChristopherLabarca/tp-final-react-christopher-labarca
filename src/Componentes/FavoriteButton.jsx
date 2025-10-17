@@ -1,14 +1,11 @@
 import React from "react";
 
-// Componente del botón (Arrow Function)
-const FavoriteButton = ({ itemId, isFavorite, onToggle }) => {
-  // Lógica de visualización
-  const icon = isFavorite ? "❤️" : "🤍";
+const FavoriteButton = ({ pokemonId, isFavorite, onToggle }) => {
+  const icon = isFavorite ? "❤" : "🤍";
 
   return (
     <button
-      // Arrow Function para manejar el evento onClick
-      onClick={() => onToggle(itemId)}
+      onClick={() => onToggle(pokemonId)}
       style={{
         background: "none",
         border: "none",
