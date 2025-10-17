@@ -143,7 +143,6 @@
   background-color: rgb(255, 255, 255);
 }
 
-
 .pokemon-info {
   max-width: 400px;
   margin: 20px auto;
@@ -213,4 +212,5 @@
   background-color: #f9f9f9a9;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
-  transition: transform 0.3s ease;}
+  transition: transform 0.3s ease;
+}

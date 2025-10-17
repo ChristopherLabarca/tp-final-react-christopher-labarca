@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import FavoriteButton from "../Componentes/FavoriteButton.jsx"; // ← Ruta corregida
-import useFavorites from "../Hooks/useFavories.jsx"; // ← Ruta corregida
+import useFavorites from "../Hooks/useFavorites.jsx"; // ← Ruta corregida
 
 export default function Pokedex() {
   const [pokemones, setPokemones] = useState([]);
@@ -49,13 +49,21 @@ export default function Pokedex() {
         })}
       </div>
 
+      <h2>Cargar más Pokémon</h2>
 
-<h2>Cargar más Pokémon</h2>
-
-
-      <button style={{ backgroundColor: "lightblue", padding: "10px", border: "none", borderRadius: "5px", cursor: "pointer", marginTop: "20px" }}
+      <button
+        style={{
+          backgroundColor: "lightblue",
+          padding: "10px",
+          border: "none",
+          borderRadius: "5px",
+          cursor: "pointer",
+          marginTop: "20px",
+        }}
         onClick={() => {
-          fetch(`https://pokeapi.co/api/v2/pokemon?offset=${pokemones.length}&limit=30`)
+          fetch(
+            `https://pokeapi.co/api/v2/pokemon?offset=${pokemones.length}&limit=30`
+          )
             .then((res) => res.json())
             .then((data) => setPokemones((prev) => [...prev, ...data.results]))
             .catch((err) => console.log(err));
@@ -64,12 +72,12 @@ export default function Pokedex() {
         Cargar más Pokémon
       </button>
 
-<h3>Pokemones Favoritos</h3>
+      <h3>Pokemones Favoritos</h3>
 
       <p>Total de Favoritos: {favorites.length}</p>
       <div className="favorites-list">
         {favorites.map((pokemon) => (
-          <div key={pokemon.id} className="favorite-pokemon" >
+          <div key={pokemon.id} className="favorite-pokemon">
             <h4>{pokemon.name}</h4>
             <img
               alt={`Pokemon ${pokemon.name}`}
@@ -84,6 +92,6 @@ export default function Pokedex() {
           </div>
         ))}
       </div>
-</>
-);
+    </>
+  );
 }
