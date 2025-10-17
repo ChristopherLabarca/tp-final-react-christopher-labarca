@@ -106,7 +106,7 @@ button:focus-visible {
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: #222bc7;
   }
   button {
     background-color: #484b52;
@@ -123,4 +123,8 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+}
+
+.div {
+  display: flex;
 }
