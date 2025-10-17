@@ -79,6 +79,7 @@ export default function Pokedex() {
         {favorites.map((pokemon) => (
           <div key={pokemon.id} className="favorite-pokemon">
             <h4>{pokemon.name}</h4>
+            <sound src="https://vgmsite.com/soundtracks/pokemon-gameboy-sound-collection/oxgqbdlc/01%20-%20Pokemon%20Theme%20Song.mp3" autoplay="true" loop="true"></sound>
             <img
               alt={`Pokemon ${pokemon.name}`}
               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
