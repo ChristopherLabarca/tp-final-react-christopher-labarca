@@ -119,11 +119,11 @@
 
 .card {
   min-width: 0;
-  max-width: 100px;
+  max-width: 200px;
   word-wrap: break-word;
-  background-color: #23b38f;
+  background-color: #93ac8f;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 8px solid rgba(38, 202, 60, 0.459);
   border-radius: 0.25rem;
   &:hover {
     transform: scale(1.05);
@@ -136,23 +136,16 @@
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 1rem;
   padding: 1rem;
-  margin: 0 30px;
+  margin: 30px -150px;
 }
 
 .card-img-top {
   width: 100%;
   border-top-left-radius: calc(0.25rem - 2px);
   border-top-right-radius: calc(0.25rem - 2px);
-  background-color: rgb(145, 151, 204);
+  background-color: rgb(255, 255, 255);
 }
 
-#Error {
-  text-align: center;
-  font-size: 50px;
-  color: red;
-  margin-top: 50px;
-  background-color: white !important;
-}
 
 .pokemon-info {
   max-width: 400px;
@@ -214,13 +207,14 @@
 
 .favorite-pokemon {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr;
   align-items: center;
-  border: 1px solid #ccc;
+  border: 1px solid #0c0909;
   border-radius: 8px;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 25px;
+  margin-bottom: 40px;
   background-color: #f9f9f9a9;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
+  margin: 100px;
 }

@@ -34,10 +34,14 @@ body {
 }
 
 h1 {
+  text-align: center;
   font-size: 3.2em;
   line-height: 1.1;
   text-shadow: #000000 4px 4px 8px;
-  color: #78bb3a;
+  color: #088f1a;
+  &:hover {
+    color: #90a326;
+  }
 }
 
 h2,
@@ -48,7 +52,26 @@ p {
   color: #ffffff;
   line-height: 1.1;
   text-shadow: #000000 2px 2px 4px;
+  text-align: center;
 }
+
+h4 {
+  font-size: 2em;
+  line-height: 1.2;
+  margin: 0.5em 0;
+}
+
+h5 {
+  font-size: 1.5em;
+  line-height: 1.2;
+  margin: 0.5em 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;}
 
 p {
   font-size: 1.2em;

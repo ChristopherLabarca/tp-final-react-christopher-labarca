@@ -74,7 +74,7 @@ export default function Pokedex() {
             <img
               alt={`Pokemon ${pokemon.name}`}
               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
-              style={{ width: "100px", height: "100px" }}
+              style={{ width: "200px", height: "200px" }}
             />
             <FavoriteButton
               pokemonId={pokemon.id}

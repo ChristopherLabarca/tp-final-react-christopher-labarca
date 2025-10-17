@@ -7,6 +7,7 @@ import Favoritos from "./Componentes/Favoritos.jsx";
 import Informacion from "./Componentes/Informacion.jsx";
 import Pokedex from "./Componentes/Pokedex.jsx";
 import Inicio from "./Componentes/Inicio.jsx";
+import Error from "./Componentes/Error.jsx";
 const BASE = "https://pokeapi.co/api/v2";
 
 function App() {
@@ -23,11 +24,11 @@ function App() {
 
       <div>
         <Routes>
-          <Route path="inicio" element={<Inicio />} />
+          <Route path="/inicio" element={<Inicio />} />
           <Route path="/informacion/:id" element={<Informacion />} />
           <Route path="/pokedex" element={<Pokedex />} />
           <Route path="/favoritos" element={<Favoritos />} />
-          <Route path="*" element={<h2>404 Not Found</h2>} />
+          <Route path="*" element={<Error />} />
         </Routes>
       </div>
     </>

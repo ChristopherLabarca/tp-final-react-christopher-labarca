@@ -1,7 +1,7 @@
 import React from "react";
 
 const FavoriteButton = ({ pokemonId, isFavorite, onToggle }) => {
-  const icon = isFavorite ? "❤" : "🤍";
+  const icon = isFavorite ? "❤️" : "🤍";
 
   return (
     <button
