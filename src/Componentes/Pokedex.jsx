@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import FavoriteButton from "../Componentes/FavoriteButton.jsx"; // ← Ruta corregida
-import useFavorites from "../Hooks/useFavories.jsx"; // ← Ruta corregida
+import useFavorites from "../Hooks/useFavorites.jsx"; // ← Ruta corregida
 
 export default function Pokedex() {
   const [pokemones, setPokemones] = useState([]);
@@ -62,7 +62,7 @@ export default function Pokedex() {
         }}
         onClick={() => {
           fetch(
-            `https://pokeapi.co/api/v2/pokemon?offset=${pokemones.length}&limit=30`
+            `https://pokeapi.co/api/v2/pokemon?offset=${pokemones.length}&limit=20`
           )
             .then((res) => res.json())
             .then((data) => setPokemones((prev) => [...prev, ...data.results]))
@@ -79,7 +79,6 @@ export default function Pokedex() {
         {favorites.map((pokemon) => (
           <div key={pokemon.id} className="favorite-pokemon">
             <h4>{pokemon.name}</h4>
-            <sound src="https://vgmsite.com/soundtracks/pokemon-gameboy-sound-collection/oxgqbdlc/01%20-%20Pokemon%20Theme%20Song.mp3" autoplay="true" loop="true"></sound>
             <img
               alt={`Pokemon ${pokemon.name}`}
               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
@@ -90,6 +89,7 @@ export default function Pokedex() {
               isFavorite={true}
               onToggle={() => toggleFavorite(pokemon)}
             />
+            <Link to={`/informacion/${pokemon.id}`}>Ver más</Link>
           </div>
         ))}
       </div>

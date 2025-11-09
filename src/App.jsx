@@ -14,13 +14,14 @@ function App() {
   return (
     <>
       <div>
-        <a href="https://pokeapi.co/" target="_blank">
+        <a href="" target="_blank">
           <img src={pokeLogo} className="logo" alt="Poke logo" width={300} />
         </a>
       </div>
 
       <Navbar />
       <div className="main"></div>
+
 
       <div>
         <Routes>
@@ -30,6 +31,7 @@ function App() {
           <Route path="/favoritos" element={<Favoritos />} />
           <Route path="/*" element={<Error />} />
           <Route path="/" element={<Inicio />} />
+          
         </Routes>
       </div>
     </>
@@ -43,3 +45,4 @@ en inicio es la pagina de inicio
 */
 
 export default App;
+

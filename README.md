@@ -50,23 +50,17 @@ PokeAPI	Fuente de datos de Pokémon
 ```
 src/
 ├── assets/
-│   ├── store (aun no completado, a espera de futuras actualizaciones)
-│   │   ├── cardslice.jsx
-│   │   ├── favslice.jsx
-│   │   ├── index.jsx
-│   │   ├── pokedetails.jsx
-│   │   ├── 
-├── componentes/
-│   ├── button.jsx
-│   ├── error.jsx
-│   ├── favoritebutton.jsx
-│   ├── favoritos.jsx
-│   ├── informacion.jsx
-│   ├── inicio.jsx
-│   ├── navbar.jsx
+├── Componentes/
+│   ├── Button.jsx
+│   ├── Error.jsx
+│   ├── Favoritebutton.jsx
+│   ├── Favoritos.jsx
+│   ├── Informacion.jsx
+│   ├── Inicio.jsx
+│   ├── Navbar.jsx
 │   └── Pokedex.jsx
 ├── hooks/
-│   └── usefavorites.jsx
+│   └── useFavorites.jsx
 ├── public (vacio)
 ├── App.jsx
 ├── app.css

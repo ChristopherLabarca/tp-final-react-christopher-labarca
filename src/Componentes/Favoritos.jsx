@@ -1,5 +1,6 @@
-import useFavorites from "../Hooks/UseFavories.jsx";
+import useFavorites from "../Hooks/useFavorites.jsx";
 import FavoriteButton from "./Button.jsx";
+import { Link } from "react-router-dom";
 
 export default function Favoritos() {
   const { favorites, toggleFavorite } = useFavorites();
@@ -12,6 +13,7 @@ export default function Favoritos() {
         {favorites.map((pokemon) => (
           <div key={pokemon.id} className="favorite-pokemon">
             <h4>{pokemon.name}</h4>
+
             <img
               alt={`Pokemon ${pokemon.name}`}
               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
@@ -22,6 +24,8 @@ export default function Favoritos() {
               isFavorite={true}
               onToggle={() => toggleFavorite(pokemon)}
             />
+            <Link to={`/informacion/${pokemon.id}`}>Ver más</Link>
+
           </div>
         ))}
       </div>
